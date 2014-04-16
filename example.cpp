@@ -12,5 +12,6 @@ int main() {
 	std::cout << "course to steer: " << cts << std::endl;
 	for (int i = 0; i < 27; i++) {
 		std::cout <<"wd: " << windDir[i] << ", sailCommand: " << sc.getSailCommand(cts, windDir[i]) << std::endl;
+		std::cout <<"rwd: " << windDir[i] << ", sailCommand2: " << sc.getSailCommand(windDir[i]) << std::endl;
 	}
 }

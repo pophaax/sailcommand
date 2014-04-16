@@ -13,21 +13,21 @@ int SailCommand::getSailCommand(int courseToSteer, int windDirection) {
 	int diff = modifyDegreeRange(courseToSteer) - modifyDegreeRange(windDirection);
 
 	if (diff < -120) {
-		return STARBOARD_CLOSE_REACH;
+		return CLOSE_REACH;
 	} else if (diff < -80) {
-		return STARBOARD_BEAM_REACH;
+		return BEAM_REACH;
 	} else if (diff < -40) {
-		return STARBOARD_BROAD_REACH;
+		return BROAD_REACH;
 	} else if (diff < 0) {
-		return STARBOARD_RUNNING;
+		return RUNNING;
 	} else if (diff < 40) {
-		return PORT_RUNNING;
+		return RUNNING;
 	} else if (diff < 80) {
-		return PORT_BROAD_REACH;
+		return BROAD_REACH;
 	} else if (diff < 120) {
-		return PORT_BEAM_REACH;
+		return BEAM_REACH;
 	} else {
-		return PORT_CLOSE_REACH;
+		return CLOSE_REACH;
 	}
 	return 0;
 }
@@ -41,4 +41,27 @@ int SailCommand::modifyDegreeRange(int deg) {
 		return 360 + deg;
 	}
 	return deg;
+}
+
+
+int SailCommand::getSailCommand(int relativeWind) {
+
+	if (relativeWind < 40) {
+		return RUNNING;
+	} else if (relativeWind < 80) {
+		return BROAD_REACH;
+	} else if (relativeWind < 120) {
+		return BEAM_REACH;
+	} else if (relativeWind < 180) {
+		return CLOSE_REACH;
+	} else if (relativeWind < 240) {
+		return CLOSE_REACH;
+	} else if (relativeWind < 280) {
+		return BEAM_REACH;
+	} else if (relativeWind < 320) {
+		return BROAD_REACH;
+	} else {
+		return RUNNING;
+	}
+	return 0;
 }
