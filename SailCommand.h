@@ -6,12 +6,9 @@ public:
 	~SailCommand();
 
 	// calulates the command to set the sailposition
-	int getSailCommand(int courseToSteer, int trueWindDirection);
 	int getSailCommand(int relativeWind);
 
 private:
-	//modifies degree range from 0->360 to -180->180
-	int modifyDegreeRange(int deg);
 
 	//sailcommands from SailControl documentation
 	enum sailCommands {
