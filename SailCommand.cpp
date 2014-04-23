@@ -1,7 +1,7 @@
 #include "SailCommand.h"
 
 SailCommand::SailCommand() {
-
+	
 }
 
 SailCommand::~SailCommand() {
@@ -28,4 +28,11 @@ int SailCommand::getSailCommand(int relativeWind) {
 		return RUNNING;
 	}
 	return 0;
+}
+
+void setCommandValues(int closeReach, int beamReach, int broadReach, int running) {
+	m_closeReach = closeReach;
+	m_beamReach = beamReach;
+	m_broadReach = broadReach;
+	m_running = running;
 }
