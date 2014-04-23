@@ -8,13 +8,13 @@ public:
 	// calulates the command to set the sailposition
 	int getSailCommand(int relativeWind);
 
+	//sets the commandvalues
+	void setCommandValues(int closeReach, int beamReach, int broadReach, int running);
+	
 private:
 
-	//sailcommands from SailControl documentation
-	enum sailCommands {
-		CLOSE_REACH = 10,	//0-40 & 320-360 deg relative wind direction
-		BEAM_REACH = 30,		//40-80 & 280-320
-		BROAD_REACH = 60,	//80-120 & 240-280
-		RUNNING = 90			//120-240
-	};
+	int m_closeReach;
+	int m_beamReach;
+	int m_broadReach;
+	int m_running;
 };
