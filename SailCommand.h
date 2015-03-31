@@ -1,3 +1,5 @@
+#include <math.h>
+
 class SailCommand {
 
 public:
@@ -19,6 +21,8 @@ private:
 	int m_broadReachCommand;
 	int m_runningCommand;
 	
+	int m_delta;
+
 	int m_beamReachAngle;
 	int m_broadReachAngle;
 	int m_runningAngle;

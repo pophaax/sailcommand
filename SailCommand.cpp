@@ -1,7 +1,7 @@
 #include "SailCommand.h"
 
 SailCommand::SailCommand() {
-	
+	m_delta = 10;
 }
 
 SailCommand::~SailCommand() {
@@ -9,21 +9,9 @@ SailCommand::~SailCommand() {
 }
 
 int SailCommand::getCommand(int relativeWind) {
-	if (relativeWind < m_runningAngle) {
-		return m_runningCommand;
-	} else if (relativeWind < m_broadReachAngle) {
-		return m_broadReachCommand;
-	} else if (relativeWind < m_beamReachAngle) {
-		return m_beamReachCommand;
-    } else if (relativeWind > 360 - m_runningAngle) {
-		return m_runningCommand;
-	} else if (relativeWind > 360 - m_broadReachAngle) {
-		return m_broadReachCommand;
-	} else if (relativeWind > 360 - m_beamReachAngle) {
-		return m_beamReachCommand;
-	} else {
-		return m_closeReachCommand;
-	}
+	double midpoint = (m_runningCommand + m_closeReachCommand) / 2.0 ;
+	double delta = m_runningCommand - midpoint;
+	return (int) ( midpoint + cos( relativeWind * (M_PI / 180)) * delta );
 }
 
 void SailCommand::setCommandValues(int closeReach, int beamReach, int broadReach, int running) {
