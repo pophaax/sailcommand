@@ -4,8 +4,7 @@
 
 int main() {
 	SailCommand sc;
-	sc.setCommandValues(0, 1, 2, 3);
-	sc.setAngleValues(120, 80, 40);
+	sc.setCommandValues(0, 3);
 
 	int windDir[] = { 0, 1, 39, 40, 41, 70, 80, 81, 119, 120, 121,
 		179, 180, 181, 239, 240, 241, 241, 279, 280, 281, 319,

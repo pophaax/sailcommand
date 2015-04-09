@@ -16,8 +16,7 @@ TEST_CASE("SailCommandTest")
 		const int resulting_command[noOfwindDir] = {3,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,3,2};
 
 		SailCommand sc;
-		sc.setCommandValues(0, 1, 2, 3);
-		sc.setAngleValues(120, 80, 40);
+		sc.setCommandValues(0, 3);
 		
 		for (int i = 0; i < noOfwindDir; i++) {
 			REQUIRE(sc.getCommand(windDir[i]) == resulting_command[i]);

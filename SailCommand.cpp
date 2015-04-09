@@ -1,7 +1,9 @@
 #include "SailCommand.h"
+#include <math.h>
+
 
 SailCommand::SailCommand() {
-	m_delta = 10;
+
 }
 
 SailCommand::~SailCommand() {
@@ -14,15 +16,7 @@ int SailCommand::getCommand(int relativeWind) {
 	return (int) ( midpoint + cos( relativeWind * (M_PI / 180)) * delta );
 }
 
-void SailCommand::setCommandValues(int closeReach, int beamReach, int broadReach, int running) {
+void SailCommand::setCommandValues(int closeReach, int running) {
 	m_closeReachCommand = closeReach;
-	m_beamReachCommand = beamReach;
-	m_broadReachCommand = broadReach;
 	m_runningCommand = running;
-}
-
-void SailCommand::setAngleValues(int beamReach, int broadReach, int running) {
-	m_beamReachAngle = beamReach;
-	m_broadReachAngle = broadReach;
-	m_runningAngle = running;	
 }
