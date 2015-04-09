@@ -22,5 +22,21 @@ TEST_CASE("SailCommandTest")
 			REQUIRE(sc.getCommand(windDir[i]) == resulting_command[i]);
 		}
 	}
+	SECTION("Test SailCommand with 27 different wind directions, which results in a correct set of commands")
+	{
+		const int noOfwindDir = 27;
+		int windDir[] = { 0, 1, 39, 40, 41, 70, 80, 81, 119, 120, 121,
+			179, 180, 181, 239, 240, 241, 241, 279, 280, 281, 319,
+			320, 321, 359, 360, 361 };
+		/* Results from running example.cpp */
+		const int resulting_command[noOfwindDir] =
+		{600,599,533,529,526,402,352,346,154,150,145,0,0,0,145,149,154,154,346,352,357,526,529,533,599,600,599};
+		SailCommand sc;
+		sc.setCommandValues(0, 600);
+
+		for (int i = 0; i < noOfwindDir; i++) {
+			REQUIRE(sc.getCommand(windDir[i]) == resulting_command[i]);
+		}
+	}
 
 }
