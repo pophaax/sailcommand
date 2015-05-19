@@ -25,10 +25,10 @@ example : $(SOURCES) $(HEADERS) example.cpp
 	$(CC) $(SOURCES) example.cpp $(FLAGS) $(LIBS) -o example
 
 
-test : $(SOURCES) $(HEADERS) ../catch.hpp testSailCommand.cpp
+test : $(SOURCES) $(HEADERS) $$SAILINGROBOTS_HOME/catch.hpp testSailCommand.cpp
 	$(CC) $(SOURCES) testSailCommand.cpp $(LIBS) -o test
 
-metatest : $(SOURCES) $(HEADERS) ../catch.hpp testSailCommand.cpp
+metatest : $(SOURCES) $(HEADERS) $$SAILINGROBOTS_HOME/catch.hpp testSailCommand.cpp
 	$(CC) $(SOURCES) testSailCommand.cpp -fprofile-arcs -ftest-coverage $(LIBS) -o metatest 
 
 
