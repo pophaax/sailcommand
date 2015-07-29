@@ -9,7 +9,7 @@ public:
 	~SailCommand();
 
 	// calulates the command to set the sailposition
-	int getCommand(int relativeWind);
+	int getCommand(double command);
 
 	//sets the commandvalues returned by getSailCommand()
 	void setCommandValues(int closeReach, int running);
